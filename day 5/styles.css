@@ -1,0 +1,21 @@
+.city {
+    background-color: tomato;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+}
+.other {
+    background-color: thistle;
+   
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#02 {
+    color: white;
+}
