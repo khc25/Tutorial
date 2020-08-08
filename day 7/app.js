@@ -11,6 +11,12 @@ app.get('/about', (req, res) => {
     res.sendfile("about.html", {root:__dirname})
 })
 
+app.post('/post', (req, res) => {
+    console.log(req);
+    console.log(res);
+    //
+})
+
 app.listen(8080, () => {
     console.log('port listen on 8080')
 })

@@ -40,13 +40,12 @@
         var name = document.getElementById('name').value;
         var mail = document.getElementById('mail').value;
         var msg = document.getElementById('msg').value;
-        $.post("http://httpbin.org/post", {
+        $.post("http://localhost:8080/post", {
             name: name,
             mail: mail,
             msg: msg
         }, function (result) {
             $("#demo").html(JSON.stringify(result));
-            
             console.log(result);
         });
     });
