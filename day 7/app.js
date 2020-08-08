@@ -11,9 +11,15 @@ app.get('/about', (req, res) => {
     res.sendfile("about.html", {root:__dirname})
 })
 
+app.get('data', (req, res) => {
+    // SQL Query
+    // const Query = `SELECT * FROM student;`
+})
+
 app.post('/post', (req, res) => {
     console.log(req);
     console.log(res);
+    
     //
 })
 
