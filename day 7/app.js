@@ -14,6 +14,7 @@ app.get('/about', (req, res) => {
 app.get('data', (req, res) => {
     // SQL Query
     // const Query = `SELECT * FROM student;`
+    // database =/= Storage
 })
 
 app.post('/post', (req, res) => {
