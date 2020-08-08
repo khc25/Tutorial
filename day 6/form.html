@@ -30,7 +30,7 @@
         </ul>
     </form>
 
-    <div id="demo" ></div>
+    <div id="demo"></div>
 
 </body>
 <script>
@@ -45,7 +45,8 @@
             mail: mail,
             msg: msg
         }, function (result) {
-            // $("div").html(result);
+            $("#demo").html(JSON.stringify(result));
+            
             console.log(result);
         });
     });
