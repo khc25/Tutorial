@@ -34,6 +34,7 @@
 
 </body>
 <script>
+    // submit data by post method
     $("#submit").click(function (e) {
         e.preventDefault();
         console.log(e);
@@ -45,6 +46,7 @@
             mail: mail,
             msg: msg
         }, function (result) {
+            // display in html, become string
             $("#demo").html(JSON.stringify(result));
             console.log(result);
         });
