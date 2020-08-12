@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form >
+    <form>
         <ul>
             <li>
                 <label for="name">Name:</label>
@@ -41,10 +41,7 @@
         var name = document.getElementById('name').value;
         var mail = document.getElementById('mail').value;
         var msg = document.getElementById('msg').value;
-        $.post("http://localhost:8080/post", {
-            name: name,
-            mail: mail,
-            msg: msg
+        $.post(`http://localhost:8080/post?name=${name}&email=${mail}&msg=${msg}`, {
         }, function (result) {
             // display in html, become string
             $("#demo").html(JSON.stringify(result));
