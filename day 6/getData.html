@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
         #customers {
-          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
-        
-        #customers td, #customers th {
-          border: 1px solid #ddd;
-          padding: 8px;
-        }
-        
-        #customers tr:nth-child(even){background-color: #f2f2f2;}
-        
-        #customers tr:hover {background-color: #ddd;}
-        
+
+        #customers td,
         #customers th {
-          padding-top: 12px;
-          padding-bottom: 12px;
-          text-align: left;
-          background-color: red;
-          color: white;
+            border: 1px solid #ddd;
+            padding: 8px;
         }
-        </style>
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: red;
+            color: white;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Get Data</title>
 </head>
+
 <body>
     <h1> Get Data Method 1</h1>
     <div id="demo1"></div>
@@ -43,7 +50,7 @@
     //Method 2
     // $("#get").click(function (e) {
     //     e.preventDefault();
-       
+
     //     var txt = "";
 
     //     $.get(`http://localhost:8080/`, {
@@ -62,20 +69,22 @@
 
     //Method 1
     
+
     $.get(`http://localhost:8080/`, {
-        }, function (result) {
-            var txt = "";
-            // display in html, become string
-            txt += "<table id='customers'> <tr> <th>Name</th> <th>Email</th> <th>Msg</th> </tr>"
-            console.log(result)
-            for(var i=0 ; i < result.length; i++) {
-                txt += "<tr>" + "<td>" + result[i].name + "</td>" + "<td>" + result[i].email + "</td>" + "<td>" + result[i].msg + "</td>" + "</tr>"
-            }
-            txt +="</table>"
-            
-            // $("#demo").html(JSON.stringify(result));
-            $("#demo1").html(txt);
-        });
-    
+    }, function (result) {
+        var txt = "";
+        // display in html, become string
+        txt += "<table id='customers'> <tr> <th>Name</th> <th>Email</th> <th>Msg</th> </tr>"
+
+        for (var i = 0; i < result.length; i++) {
+            txt += "<tr>" + "<td>" + result[i].name + "</td>" + "<td>" + result[i].email + "</td>" + "<td>" + result[i].msg + "</td>" + "</tr>"
+        }
+        txt += "</table>"
+
+        // $("#demo").html(JSON.stringify(result));
+        $("#demo1").html(txt);
+    });
+
 </script>
+
 </html>
