@@ -13,6 +13,9 @@ import UploadHomework from './components/UploadHomework';
 import Registor from './components/register';
 import GetUser from './components/getUser';
 import UserDetails from './components/userDetail';
+import Login from './components/login';
+import PublicRoute from './components/PublicRoute';
+import PrivateRoute from './components/PrivateRoute'
 
 
 
@@ -23,10 +26,11 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={Index} />
-          <Route exact path='/upload' component={UploadHomework} />
-          <Route exact path='/registor' component={Registor} />
-          <Route exact path='/getuser' component={GetUser} />
-          <Route exact path='/user/:id' component={UserDetails} />
+          <PrivateRoute exact path='/upload' component={UploadHomework} />
+          <PublicRoute exact path='/registor' component={Registor} />
+          <PrivateRoute exact path='/getuser' component={GetUser} />
+          <PrivateRoute exact path='/user/:id' component={UserDetails} />
+          <PublicRoute exact path='/login' component={Login} />
         </Switch>
       </Router>
     </div>

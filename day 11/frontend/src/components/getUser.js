@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Card, CardColumns,Button } from 'react-bootstrap'
+import Spinner from 'react-bootstrap/Spinner'
 
 
 class GetUser extends Component {
@@ -53,17 +54,21 @@ class GetUser extends Component {
                         <Card.Subtitle className="mb-2 text-muted">{result.email}</Card.Subtitle>
                         <Card.Text>{result.msg}</Card.Text>
                     </Card.Body>
-                    <Button id={result.id} onClick={this.RedirectToDatail}>Click</Button>
+                    <Button id={result.id} onClick={this.RedirectToDatail}>Change infomation</Button>
 
                     <Button id={result.id} onClick={this.handleDelete} variant="danger">Delete</Button>
                 </Card>
             )
         })
 
+        const render = !this.state.data ?  
+            <Spinner animation="border" variant="secondary" /> 
+         :  <CardColumns>{mapping}</CardColumns> ;
+
 
         return (
             <div>
-                <CardColumns>{mapping}</CardColumns>        
+                {render}     
             </div>
 
         )

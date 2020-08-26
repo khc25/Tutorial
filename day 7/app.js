@@ -15,6 +15,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+//jwt
+const jwt = require('jwt-simple')
+const config = require('./config')
 
 //SQL
 const connectionString = "postgres://peodzzpi:Bt26r3XYTIzcb09VlwSuYxHK_O8HzUkb@isilo.db.elephantsql.com:5432/peodzzpi";
@@ -96,10 +99,10 @@ app.get('/getOne', async function (req, res) {
 
 //app.put
 app.put('/change' ,(req, res) => {
-    var q = req.query;
+    var q = req.body;
     
     console.log(q);
-    pool.query("UPDATE test SET name = $2 WHERE id = $1", [q.id, q.name], (err, res) => {
+    pool.query("UPDATE test SET name = $2, email = $3, msg = $4 WHERE id = $1", [q.id, q.name, q.email, q.msg], (err, res) => {
         if(err) {
             console.log(err);
         } else {
@@ -151,7 +154,32 @@ app.put('/transaction', (req, res) => {
     res.send('Your balance remaining is' + newBalance);
 })
 
+//login route
+
+app.post('/login', async (req, res) => {
+    var q = req.body
+    console.log(q)
+    let user = await pool.query('SELECT * FROM test WHERE email = $1', [q.email]);
+    console.log(user.rows)
+
+    let result = user.rows[0]
+    if(result.email === q.email && result.msg === q.msg) {
+        var payload = {
+            id: result.id,
+            email: result.email,
+            msg: result.msg,
+        }
+
+        var token = jwt.encode(payload, config.jwtSecret);
+        console.log(token);
+        res.send(token);
+    } else {
+        res.send('Error');
+    }
+})
+
 //set port
 app.listen(PORT, () => {
     console.log('port listen on 8080')
 })
+

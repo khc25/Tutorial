@@ -5,9 +5,7 @@ import axios from 'axios';
 class Registor extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            name: '',
-        }
+      
 
     }
     // handleNameChange = (e) => {

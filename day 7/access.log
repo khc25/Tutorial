@@ -688,3 +688,16 @@
 [0mGET /getOne?id=1 [36m304[0m 1312.508 ms - -[0m
 [0mGET /getOne?id=1 [36m304[0m 1226.870 ms - -[0m
 [0mGET /getOne?id=1 [36m304[0m 1363.821 ms - -[0m
+[0mPOST /login [0m-[0m - ms - -[0m
+[0mPOST /login [0m-[0m - ms - -[0m
+[0mPOST /login [0m-[0m - ms - -[0m
+[0mPOST /login [0m-[0m - ms - -[0m
+[0mPOST /login [0m-[0m - ms - -[0m
+[0mPOST /login [0m-[0m - ms - -[0m
+[0mPOST /login [0m-[0m - ms - -[0m
+[0mPOST /login [32m200[0m 1140.887 ms - 151[0m
+[0mPOST /login [32m200[0m 1184.406 ms - 151[0m
+[0mPOST /login [32m200[0m 1163.086 ms - 151[0m
+[0mPOST /login [32m200[0m 1152.344 ms - 151[0m
+[0mPOST /login [32m200[0m 1288.449 ms - 151[0m
+[0mPOST /login [32m200[0m 1164.656 ms - 151[0m
