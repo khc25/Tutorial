@@ -2,8 +2,8 @@ change/
 login, private route, public route/
 
 Sun
-upload
-props example
+upload /    
+props example /
 
 Wed
 redux(Golbal state (props)), thunk
