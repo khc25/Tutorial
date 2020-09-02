@@ -1,4 +1,5 @@
-import { ADD_TODO } from '../Actions/todoAction';
+import { ADD_TODO, DELETE_TODO  } from '../Actions/todoAction';
+
 
 const initialState = {
     datas:[]
@@ -11,6 +12,14 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 datas:[...state.datas, {id, content}]
+            }
+        }
+
+        case DELETE_TODO: {
+            const id = action.id;
+            return {
+                ...state,
+                datas:[...state.datas.filter(data => data.id != id)]
             }
         }
         default:

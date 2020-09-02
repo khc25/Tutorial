@@ -37,8 +37,10 @@ class AddTodo extends Component {
 // const mapStateToProps //load data
 
 const mapDispatchToProps = (dispatch) => {
+    //put add method into props
     return { //like object
         add: (content) => {
+            //dispatch to Action
             dispatch(AddTodoAction(content))
         }
     }
