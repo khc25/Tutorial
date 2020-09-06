@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { DeleteTodoAction } from '../redux/Actions/todoAction'
+import { DeleteTodoActionThunk, LoadTodoActionThunk } from '../redux/Actions/todoAction'
+import { CardColumns } from 'react-bootstrap'
 
 class TodoList extends Component {
     constructor(props) {
-        super(props)
-    }
+        super(props);
+        //state from subcomponent
+        this.state = {
 
+        }
+    }
+    //load something before render
+    componentDidMount() {
+        //load
+        this.props.load()
+    }
+    
     handleDelete = e => {
         const id = e.target.id;
         this.props.delete(id);
@@ -19,18 +29,18 @@ class TodoList extends Component {
         const mapping = this.props.dataFromReducer.map(rows => {
             return (
                 <div>
-                    <div>{rows.id}</div>
                     <div>{rows.content}</div>
                     <button id={rows.id} onClick={this.handleDelete}>delete</button>
                 </div>
             )
         })
         return (
-            <h1>{mapping}</h1>
+            <CardColumns>{mapping}</CardColumns>
         )
     }
 }
 
+//state from store
 const mapStateToProps = state => {
     //call state from store
     console.log(state);
@@ -43,10 +53,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        load:() => dispatch(LoadTodoActionThunk()),
         delete: (id)=> {
-            dispatch(DeleteTodoAction(id))
+            dispatch(DeleteTodoActionThunk(id))
         }
+        
     }
+    
 }
 
 

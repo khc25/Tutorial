@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
-import { AddTodoAction } from '../redux/Actions/todoAction'
+import { AddTodoActionThunk } from '../redux/Actions/todoAction'
 
 
 class AddTodo extends Component {
@@ -20,6 +20,7 @@ class AddTodo extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        //AddTodoAction(this.state.data)
         this.props.add(this.state.data);
         //axuis
     }
@@ -34,6 +35,7 @@ class AddTodo extends Component {
     }
 }
 
+
 // const mapStateToProps //load data
 
 const mapDispatchToProps = (dispatch) => {
@@ -41,7 +43,7 @@ const mapDispatchToProps = (dispatch) => {
     return { //like object
         add: (content) => {
             //dispatch to Action
-            dispatch(AddTodoAction(content))
+            dispatch(AddTodoActionThunk(content))
         }
     }
     

@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO  } from '../Actions/todoAction';
+import { ADD_TODO, DELETE_TODO, LOAD_TODO  } from '../Actions/todoAction';
 
 
 const initialState = {
@@ -20,6 +20,13 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 datas:[...state.datas.filter(data => data.id != id)]
+            }
+        }
+
+        case LOAD_TODO: {
+            return {
+                ...state,
+                datas: state.datas.concat(action.load_data)
             }
         }
         default:
